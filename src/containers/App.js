@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
 
-import Home from './Home';
+import Nav from './Nav';
+import Main from './Main';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Switch>
-          <Route exact path='/' component={Home}/>
-        </Switch>
-      </div>
+      <BrowserRouter>
+        <div>
+          <Nav user={this.props.user}></Nav>
+          <Main user={this.props.user}></Main>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
 export default connect(
   (state) => ({
-    test: state['test']
-  }),
-  (dispatch) => ({
-    addTest: () => dispatch({type: 'TEST'})
-  }),
+    user: state['user'],
+  })
 )(App);

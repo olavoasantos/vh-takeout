@@ -1,5 +1,44 @@
-import React from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
-export default (props) => (
-  <h1>Home</h1>
-);
+class Home extends Component {
+
+  componentDidMount() {
+    axios.get('http://api-vanhack-event-sp.azurewebsites.net/api/v1/Store')
+         .then(response => {
+           this.props.pushStores(response.data);
+         })
+         .catch(errors => {
+           console.log(errors);
+         });
+  }
+
+  render() {
+    if (this.props.redirectToReferrer === true) {
+      return <Redirect to='/' />
+    }
+    return (
+      <div>
+        <h1>Stores</h1>
+        {this.props.stores.map(store => (
+          <Link to={`/stores/${store.id}`} key={`store-list-${store.id}`}>
+            <h2>{store.name}</h2>
+            <hr/>
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+}
+
+export default connect(
+  state => ({
+    stores: state['stores'],
+  }),
+  (dispatch) => ({
+    pushStores: (stores) => dispatch({type: 'ADD_STORES', value: stores}),
+  })
+)(Home);

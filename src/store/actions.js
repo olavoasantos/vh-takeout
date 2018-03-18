@@ -1,1 +1,9 @@
-export const TEST = 'TEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+export const ADD_CUISINS = 'ADD_CUISINS';
+export const ADD_STORES = 'ADD_STORES';
+export const ADD_PRODUCTS = 'ADD_PRODUCTS';
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const UPDATE_CART_PRODUCT = 'UPDATE_CART_PRODUCT';
+export const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
