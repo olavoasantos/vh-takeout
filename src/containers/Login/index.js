@@ -14,7 +14,7 @@ class Login extends Component {
                   })
                   .catch(err => {
                     this.props.fail();
-                  })
+                  });
   }
 
   render() {
@@ -23,12 +23,15 @@ class Login extends Component {
     }
 
     return (
-      <div>
+      <div className="mx-auto w-1/3">
         <h1>Login</h1>
-        <form onSubmit={this.submit}>
-          <input ref={(input) => this.emailInput = input} type="text" name="email" />
-          <input ref={(input) => this.passwordInput = input} type="password" name="password" />
-          <button type="submit">login</button>
+        <hr className="border my-8"/>
+        <form className="flex flex-col" onSubmit={this.submit}>
+          <label class="block text-grey-darker text-sm font-bold" for="email">E-mail</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.emailInput = input} type="text" name="email" />
+          <label class="block text-grey-darker text-sm font-bold" for="password">Password</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.passwordInput = input} type="password" name="password" />
+          <button className="bg-blue hover:bg-blue-dark text-white font-bold w-full py-2 px-4 rounded" type="submit">login</button>
         </form>
       </div>
     );

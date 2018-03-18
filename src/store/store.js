@@ -3,7 +3,7 @@ import StorageService from "../services/StorageService";
 const store = {
   user: StorageService('user').get(),
   redirectToReferrer: false,
-  cuisins: [],
+  orders: [],
   stores: [],
   products: [],
   cart: StorageService('cart').get() || [],

@@ -1,5 +1,5 @@
 import initialState from './store';
-import { LOGIN_SUCCESS, LOGOUT, LOGIN_FAIL, ADD_CUISINS, ADD_STORES, ADD_PRODUCTS, ADD_TO_CART, UPDATE_CART_PRODUCT, REMOVE_PRODUCT_FROM_CART } from './actions';
+import { LOGIN_SUCCESS, LOGOUT, LOGIN_FAIL, ADD_CUISINS, ADD_STORES, ADD_PRODUCTS, ADD_TO_CART, UPDATE_CART_PRODUCT, REMOVE_PRODUCT_FROM_CART, CLEAR_CART, ADD_ORDERS } from './actions';
 import {
   loginSuccessMutator,
   logoutMutator,
@@ -9,7 +9,9 @@ import {
   addProductsMutator,
   addToCartMutator,
   updateCartProductMutator,
-  removeProductFromCartMutator
+  removeProductFromCartMutator,
+  clearCartMutator,
+  addOrdersMutator
 } from './mutators';
 
 const reducer = ( state = initialState, action ) => {
@@ -32,6 +34,10 @@ const reducer = ( state = initialState, action ) => {
       return updateCartProductMutator(state, action);
     case REMOVE_PRODUCT_FROM_CART:
       return removeProductFromCartMutator(state, action);
+    case CLEAR_CART:
+      return clearCartMutator(state, action);
+    case ADD_ORDERS:
+      return addOrdersMutator(state, action);
     default:
       return state;
   }

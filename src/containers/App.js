@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div className="h-full">
           <Nav user={this.props.user}></Nav>
           <Main user={this.props.user}></Main>
         </div>

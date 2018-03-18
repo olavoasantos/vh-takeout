@@ -29,14 +29,19 @@ class Register extends Component {
     }
 
     return (
-      <div>
+      <div className="mx-auto w-1/3">
         <h1>Register</h1>
+        <hr className="border my-8"/>
         <form onSubmit={this.submit}>
-          <input ref={(input) => this.nameInput = input} type="text" name="name" /> <br/>
-          <input ref={(input) => this.emailInput = input} type="text" name="email" /> <br/>
-          <input ref={(input) => this.passwordInput = input} type="password" name="password" /> <br/>
-          <input ref={(input) => this.addressInput = input} type="text" name="address" /> <br/>
-          <button type="submit">register</button>
+          <label class="block text-grey-darker text-sm font-bold" for="email">Name</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.nameInput = input} type="text" name="name" /> <br/>
+          <label class="block text-grey-darker text-sm font-bold" for="email">E-mail</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.emailInput = input} type="text" name="email" /> <br/>
+          <label class="block text-grey-darker text-sm font-bold" for="email">Password</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.passwordInput = input} type="password" name="password" /> <br/>
+          <label class="block text-grey-darker text-sm font-bold" for="email">Address</label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker my-4" ref={(input) => this.addressInput = input} type="text" name="address" /> <br/>
+          <button className="bg-blue hover:bg-blue-dark text-white font-bold w-full py-2 px-4 rounded" type="submit">register</button>
         </form>
       </div>
     );

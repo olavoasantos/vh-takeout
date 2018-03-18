@@ -7,7 +7,7 @@ export const login = (data) => {
           .then(response => {
             delete data['password'];
             resolve(data);
-            AuthService.login(data, response);
+            AuthService.login(data, response); 
           })
           .catch(error => {
             reject({error: 'Login fail'});

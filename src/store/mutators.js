@@ -66,10 +66,9 @@ export const addToCartMutator = (state, action) => {
     cart.push(product);
   }
 
-  const newCart = ({ ...state, cart });
-  CartService.save(newCart);
+  CartService.save(cart);
 
-  return newCart;
+  return ({ ...state, cart });
 };
 export const updateCartProductMutator = (state, action) => {
   const product = action.value;
@@ -81,17 +80,24 @@ export const updateCartProductMutator = (state, action) => {
     return $product;
   });
 
-  const newCart = ({ ...state, cart });
-  CartService.save(newCart);
+  CartService.save(cart);
 
-  return newCart;
+  return ({ ...state, cart });
 };
 export const removeProductFromCartMutator = (state, action) => {
   const product = action.value;
   const cart = state.cart.filter($product => $product.id !== product.id);
 
-  const newCart = ({ ...state, cart });
-  CartService.save(newCart);
+  CartService.save(cart);
 
-  return newCart;
+  return ({ ...state, cart });
 };
+export const clearCartMutator = (state, action) => {
+  CartService.save([]);
+
+  return {...state, cart: []};
+}
+export const addOrdersMutator = (state, action) => ({
+  ...state,
+  orders: [...action.value]
+});

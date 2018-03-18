@@ -12,11 +12,12 @@ class CartProduct extends Component {
   render() {
     const product = this.props.product;
     return (
-      <div>
-        <h3>{product.name} (${product.price * product.count})</h3>
-        <input type="number" min="1" onChange={() => this.updateProduct()} defaultValue={product.count} ref={input => this.count = input} />
-        <button onClick={() => this.removeFromCart()}>Remove from cart</button>
-        <hr/>
+      <div className="flex items-center border p-4 shadow my-4">
+        <h3 className="flex-1">{product.name} (${product.price * product.count})</h3>
+        <div>
+          <input className="mr-4 shadow appearance-none border rounded py-2 px-3 text-grey-darker" type="number" min="1" onChange={() => this.updateProduct()} defaultValue={product.count} ref={input => this.count = input} />
+          <button className="bg-red hover:bg-red-dark text-white font-bold py-2 px-4 rounded" onClick={() => this.removeFromCart()}>Remove from cart</button>
+        </div>
       </div>
     );
   }

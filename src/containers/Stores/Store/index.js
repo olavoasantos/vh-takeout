@@ -36,8 +36,12 @@ class Store extends Component {
 
     return (
       <div>
-        <h1>{store.name}</h1>
-        <hr/>
+        <h1>
+          <span>{store.name}</span>
+          <br/>
+          <small className="text-grey">{store.address}</small>
+        </h1>
+        <hr className="border my-8"/>
         {products.map(product => {
           return (
             <Product key={`store-product-${product.id}`} addToCart={this.addToCart} product={product} />

@@ -6,7 +6,7 @@ const check = () => {
 
 const login = (user, token) => {
   StorageService('user').set(user);
-  StorageService('token').set(token);
+  StorageService('token').set(token.data);
 }
 
 const logout = () => {

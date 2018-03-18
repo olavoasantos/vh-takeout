@@ -24,8 +24,9 @@ class Home extends Component {
         <h1>Stores</h1>
         {this.props.stores.map(store => (
           <Link to={`/stores/${store.id}`} key={`store-list-${store.id}`}>
-            <h2>{store.name}</h2>
-            <hr/>
+            <div className="border p-4 shadow my-4 hover:bg-grey-lightest">
+              <h2>{store.name}</h2>
+            </div>
           </Link>
         ))}
       </div>
