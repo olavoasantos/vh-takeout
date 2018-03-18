@@ -1,4 +1,4 @@
-export const testMutator = (state, action) => ({
-  ...state,
-  test: state.test + 10
-})
+// export const testMutator = (state, action) => ({
+//   ...state,
+//   test: state.test + 10
+// })
