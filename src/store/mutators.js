@@ -1,4 +1,5 @@
 import AuthController from "../controllers/AuthController";
+import CartService from "../services/CartService";
 
 export const loginSuccessMutator = (state, action) => {
   return ({
@@ -65,7 +66,10 @@ export const addToCartMutator = (state, action) => {
     cart.push(product);
   }
 
-  return ({ ...state, cart });
+  const newCart = ({ ...state, cart });
+  CartService.save(newCart);
+
+  return newCart;
 };
 export const updateCartProductMutator = (state, action) => {
   const product = action.value;
@@ -77,11 +81,17 @@ export const updateCartProductMutator = (state, action) => {
     return $product;
   });
 
-  return ({ ...state, cart });
+  const newCart = ({ ...state, cart });
+  CartService.save(newCart);
+
+  return newCart;
 };
 export const removeProductFromCartMutator = (state, action) => {
   const product = action.value;
   const cart = state.cart.filter($product => $product.id !== product.id);
 
-  return ({ ...state, cart });
+  const newCart = ({ ...state, cart });
+  CartService.save(newCart);
+
+  return newCart;
 };

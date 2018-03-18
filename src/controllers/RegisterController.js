@@ -10,7 +10,7 @@ export const register = (data) => {
             resolve(data);
           })
           .catch(errors => {
-            console.log(errors)
+            console.log(errors);
             reject(errors);
           })
     try {
